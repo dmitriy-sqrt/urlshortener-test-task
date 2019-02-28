@@ -1,7 +1,7 @@
 class UrlsController < ApplicationController
   def show
     url = Url.find_by!(uuid: uuid)
-    head :ok
+    redirect_to url.full_url
   end
 
   private
