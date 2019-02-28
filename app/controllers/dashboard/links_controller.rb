@@ -1,7 +1,7 @@
 module Dashboard
   class LinksController < ApplicationController
-    def new #TODO replace home with this action
-      @link = Link.new
+    def new
+      build_link
     end
 
     def create
@@ -15,7 +15,7 @@ module Dashboard
     private
 
     def build_link
-      @link = Link.new(new_link_params)
+      @link = Link.new
     end
 
     def save_link
@@ -23,7 +23,7 @@ module Dashboard
       @link = result.object
 
       if result.success
-        redirect_to dashboard_link_path(result.object), notice: 'Link saved'
+        redirect_to dashboard_link_path(result.object)
       end
     end
 
