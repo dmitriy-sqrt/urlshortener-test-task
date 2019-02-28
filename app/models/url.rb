@@ -9,7 +9,7 @@ class Url < ApplicationRecord
 
   def valid_full_url?
     unless full_url =~ /^#{URI::regexp}$/
-      errors.add(:full_url, 'doesnt is not a valid url')
+      errors.add(:full_url, 'is not a valid url')
     end
   end
 end

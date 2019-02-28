@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'home#index'
+  root 'dashboard/urls#new'
 
   namespace :dashboard do # app routes, to separate from api/admin
-    resources :urls, only: [:show, :create]
+    resources :urls, only: [:show, :new, :create]
   end
 end
