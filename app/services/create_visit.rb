@@ -22,8 +22,12 @@ class CreateVisit < ::BaseService
   def request_info
     {
       ip:         @request.remote_ip,
-      referrer:   @request.referrer,
-      user_agent: @request.user_agent
+      referrer:   sanitize(@request.referrer),
+      user_agent: sanitize(@request.user_agent)
     }
+  end
+
+  def sanitize(value)
+    ActionController::Base.helpers.sanitize(value)
   end
 end
