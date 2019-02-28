@@ -1,6 +1,8 @@
+/ no processing should be here, extract to decorator
 tr
   td = visit.id
   td = visit.created_at
-  td = visit.ip
+  td = link_to visit.ip,
+        "https://who.is/whois-ip/ip-address/#{visit.ip}", target: '_blank'
   td = visit.user_agent
-  td = visit.referrer
+  td = visit.referrer || '-'
