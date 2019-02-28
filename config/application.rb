@@ -29,5 +29,10 @@ module Shorter
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # View generators to use slim-lang templates
+    config.generators do |g|
+      g.template_engine :slim
+    end
   end
 end
