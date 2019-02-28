@@ -9,7 +9,7 @@ class CreateUrl < ::BaseService
     if save_url
       return Result.new(success: true, object: @url)
     else
-      return Result.new(success: false, errors: @url.errors)
+      return Result.new(success: false, object: @url, errors: @url.errors)
     end
   end
 

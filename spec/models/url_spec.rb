@@ -1,5 +1,19 @@
 require 'rails_helper'
 
-RSpec.describe Url, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Url, type: :model do
+  describe 'with trashy full_url' do
+    let(:invalid_urls) do
+      [
+        'noturl',
+        '://http://www',
+      ]
+    end
+
+    it 'is marked as invalid' do
+      invalid_urls.each do |invalid_url|
+        record = Url.create(full_url: invalid_url)
+        expect(record.errors[:full_url]).to be_present
+      end
+    end
+  end
 end

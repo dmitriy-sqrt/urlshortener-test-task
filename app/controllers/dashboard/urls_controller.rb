@@ -1,13 +1,11 @@
 module Dashboard
   class UrlsController < ApplicationController
-    def create
-      result = ::CreateUrl.new(attributes: new_url_params).call
+    def new #TODO replace home with this action
+      @url = Url.new
+    end
 
-      if result.success
-        redirect_to dashboard_url_path(result.object), notice: 'Url saved'
-      else
-        raise 'shit'
-      end
+    def create
+      save_url or render :new
     end
 
     def show
@@ -15,6 +13,19 @@ module Dashboard
     end
 
     private
+
+    def build_url
+      @url = Url.new(new_url_params)
+    end
+
+    def save_url
+      result = ::CreateUrl.new(attributes: new_url_params).call
+      @url = result.object
+
+      if result.success
+        redirect_to dashboard_url_path(result.object), notice: 'Url saved'
+      end
+    end
 
     def load_url
       @url = Url.find(params[:id])
