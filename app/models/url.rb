@@ -5,7 +5,7 @@ class Url < ApplicationRecord
   validates :uuid,     presence: true, uniqueness: true
   validates :full_url, presence: true
   validate  :valid_full_url?
-  #validates :secret, presence: true # TODO
+  validates :secret, presence: true
 
   def to_param
     self.uuid # for using default path helpers, like some_path(url)

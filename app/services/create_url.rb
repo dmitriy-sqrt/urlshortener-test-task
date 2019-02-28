@@ -5,6 +5,7 @@ class CreateUrl < ::BaseService
 
   def call
     generate_uuid
+    generate_secret
 
     if save_url
       return Result.new(success: true, object: @url)
@@ -18,7 +19,8 @@ class CreateUrl < ::BaseService
   def save_url
     @url = Url.new(
       {
-        uuid: @uuid
+        uuid:   @uuid,
+        secret: @secret
       }.merge(@attributes)
     )
     @url.save
@@ -26,5 +28,9 @@ class CreateUrl < ::BaseService
 
   def generate_uuid
     @uuid = UuidGenerator.new.uuid_for_url
+  end
+
+  def generate_secret
+    @secret = Digest::MD5.hexdigest(@uuid)
   end
 end
