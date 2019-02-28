@@ -1,6 +1,6 @@
 class GenerateUuid
   def self.uuid
-    SecureRandom.hex(4)
+    SecureRandom.hex(5)
   end
 
   def self.uuid_for_link
