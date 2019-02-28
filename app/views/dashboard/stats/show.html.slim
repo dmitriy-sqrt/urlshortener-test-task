@@ -1,2 +1,11 @@
-#url-stats Stats will be here
+.jumbotron
+  h3#url-stats
+    | Here are current stats for:
+    i =< short_link_url(@link)
 
+  h4
+    | With
+    =<> @link.visits.size
+    | total visits
+
+= render 'visits', visits: @link.visits if @link.visits.any?

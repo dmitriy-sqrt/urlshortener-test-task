@@ -1,0 +1,9 @@
+table.table
+  tr
+    th #
+    th At
+    th Ip
+    th User agent
+    th Referrer
+
+  = render collection: @link.visits, partial: 'visit', as: 'visit'
