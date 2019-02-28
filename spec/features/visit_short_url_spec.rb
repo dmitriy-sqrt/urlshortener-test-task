@@ -13,6 +13,10 @@ RSpec.feature 'Visit short url', type: :feature do
 
       expect(current_url).to match(external_url)
     end
+
+    it 'records current visit' do
+      expect { visit short_url_path(url) }.to change(Visit, :count).from(0).to(1)
+    end
   end
 
   context 'for non existing url' do

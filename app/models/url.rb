@@ -1,5 +1,7 @@
 # IMPROV: validate url accessibility by http querying
 class Url < ApplicationRecord
+  has_many :visits
+
   validates :uuid,     presence: true, uniqueness: true
   validates :full_url, presence: true
   validate  :valid_full_url?
