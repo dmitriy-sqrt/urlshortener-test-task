@@ -1,13 +1,11 @@
-# TODO move to lib?
-
-class UuidGenerator
-  def uuid
+class GenerateUuid
+  def self.uuid
     SecureRandom.hex(4)
   end
 
-  def uuid_for_link
+  def self.uuid_for_link
     loop do
-      uuid = SecureRandom.hex(4)
+      uuid = self.uuid
       return uuid unless Link.find_by(uuid: uuid)
     end
   end

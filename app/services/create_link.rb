@@ -27,7 +27,7 @@ class CreateLink < ::BaseService
   end
 
   def generate_uuid
-    @uuid = UuidGenerator.new.uuid_for_link
+    @uuid = GenerateUuid.uuid_for_link
   end
 
   def generate_secret
