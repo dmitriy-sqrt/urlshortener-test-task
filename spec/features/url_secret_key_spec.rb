@@ -3,9 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Secret links', type: :feature do
   describe 'accessing secret link' do
     it 'gets user to link stats' do
-      visit '/'
-      fill_in 'link[full_url]', with: 'https://www.youtube.com/watch?v=uUtymxox_G8'
-      find('#submit-link-cta').click
+      submit_link(url: 'https://www.youtube.com/watch?v=qApaVLZmH1A')
 
       find('.secret-stats-link a').click
 
