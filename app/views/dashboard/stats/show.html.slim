@@ -5,7 +5,7 @@
 
   h4
     | With
-    =<> @link.visits.size
+    =<> @visits.size
     | total visits
 
-= render 'visits', visits: @link.visits if @link.visits.any?
+= render 'visits', visits: @visits if @visits.any?

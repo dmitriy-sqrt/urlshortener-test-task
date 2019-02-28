@@ -1,9 +1,11 @@
-table.table
+#link-visits-csv-export
+  = link_to 'Export Csv', url_for(format: :csv), class: 'btn btn-primary'
+
+table.table#link-visits
   tr
-    th #
     th At
     th Ip
     th User agent
     th Referrer
 
-  = render collection: @link.visits, partial: 'visit', as: 'visit'
+  = render collection: @visits, partial: 'visit', as: 'visit'
