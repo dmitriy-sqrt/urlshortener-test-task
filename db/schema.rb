@@ -15,23 +15,23 @@ ActiveRecord::Schema.define(version: 2019_02_28_142837) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "urls", force: :cascade do |t|
+  create_table "links", force: :cascade do |t|
     t.string "uuid"
     t.string "full_url"
     t.string "secret"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["uuid"], name: "index_urls_on_uuid", unique: true
+    t.index ["uuid"], name: "index_links_on_uuid", unique: true
   end
 
   create_table "visits", force: :cascade do |t|
-    t.bigint "url_id"
+    t.bigint "link_id"
     t.string "referrer"
     t.string "user_agent"
     t.string "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["url_id"], name: "index_visits_on_url_id"
+    t.index ["link_id"], name: "index_visits_on_link_id"
   end
 
 end

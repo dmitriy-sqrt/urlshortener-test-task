@@ -1,0 +1,13 @@
+.jumbotron
+  p#short-url-msg Here is your short url:
+  = text_field_tag :short_url, short_link_url(@link), class: 'col-xs-12'
+
+  p for
+  = text_field_tag :full_url, @link.full_url, class: 'col-xs-12', readonly: true
+
+
+  p If you want to access statistics for your url, just visit:
+  .secret-stats-link
+    = link_to "Statistics link for #{@link.uuid}", dashboard_stat_url(@link.secret), target: '_blank'
+
+  .small.text-muted Dont share statistics link, unless you want it to be public.

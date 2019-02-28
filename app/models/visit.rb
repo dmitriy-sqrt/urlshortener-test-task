@@ -1,5 +1,5 @@
 class Visit < ApplicationRecord
-  belongs_to :url
+  belongs_to :link
 
-  validates :url, presence: true
+  validates :link, presence: true
 end

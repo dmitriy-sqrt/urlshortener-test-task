@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Submit url', type: :feature do
   scenario 'for valid url' do
     visit '/'
-    fill_in 'url[full_url]', with: 'https://www.youtube.com/watch?v=uUtymxox_G8'
+    fill_in 'link[full_url]', with: 'https://www.youtube.com/watch?v=uUtymxox_G8'
     click_button 'Get url!' #TODO: css
 
     expect(page).to have_css('#short-url-msg')
@@ -12,9 +12,9 @@ RSpec.feature 'Submit url', type: :feature do
 
   scenario 'for invalid url' do
     visit '/'
-    fill_in 'url[full_url]', with: 'notvalidurl'
+    fill_in 'link[full_url]', with: 'notvalidurl'
     click_button 'Get url!' #TODO: css
 
-    expect(page).to have_css('.alert-danger', text: /is not a valid url/)
+    expect(page).to have_css('.alert-danger', text: /is not a valid link/)
   end
 end

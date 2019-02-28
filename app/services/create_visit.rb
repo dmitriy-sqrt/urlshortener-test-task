@@ -1,6 +1,6 @@
 class CreateVisit < ::BaseService
-  def initialize(url:, request:)
-    @url     = url
+  def initialize(link:, request:)
+    @link    = link
     @request = request
   end
 
@@ -15,7 +15,7 @@ class CreateVisit < ::BaseService
   private
 
   def save_visit
-    @visit = @url.visits.new(request_info)
+    @visit = @link.visits.new(request_info)
     @visit.save
   end
 

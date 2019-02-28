@@ -7,8 +7,8 @@ module Dashboard
 
     private
 
-    def load_url
-      @url = Url.find_by!(uuid: params[:uuid])
+    def load_link
+      @link = Link.find_by!(uuid: params[:uuid])
     end
   end
 end
