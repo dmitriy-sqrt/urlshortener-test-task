@@ -1,0 +1,5 @@
+.jumbotron
+  h3#short-url-msg Here is your short url:
+  = text_field_tag :short_url, @url.uuid, class: 'col-xs-12'
+  p for
+  = text_field_tag :full_url, @url.full_url, class: 'col-xs-12'

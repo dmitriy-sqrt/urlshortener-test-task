@@ -6,7 +6,7 @@ RSpec.feature 'Submit url', type: :feature do
     fill_in 'url[full_url]', with: 'https://www.youtube.com/watch?v=uUtymxox_G8'
     click_button 'Get url!' #TODO: css
 
-    expect(page).to have_text('Here is your short url')
-    # expect(page).to have_css('#short-url-result')
+    expect(page).to have_css('#short-url-msg')
+    expect(page).to have_css('input#short_url')
   end
 end
