@@ -28,7 +28,7 @@ module Dashboard
     end
 
     def load_url
-      @url = Url.find(params[:id])
+      @url = Url.find_by!(uuid: params[:uuid])
     end
 
     def new_url_params
