@@ -15,13 +15,8 @@ RSpec.feature 'Visit short url', type: :feature do
     end
 
     it 'records current visit' do
-      expect { visit short_link_path(url) }.to change(Visit, :count).from(0).to(1)
-    end
-  end
-
-  context 'for non existing url' do
-    xit 'renders error page' do
-      visit '/abracarabra'
+      expect { visit short_link_path(url) }
+        .to change(Visit, :count).from(0).to(1)
     end
   end
 end

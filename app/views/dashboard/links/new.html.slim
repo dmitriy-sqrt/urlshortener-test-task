@@ -1,9 +1,9 @@
 .jumbotron
   h3.home-welcome-msg Welcome to url shortener!
 
-  = form_for @link, url: dashboard_links_path, html: { id: 'submit-link-form' } do |f|
+  = form_for @link, url: dashboard_links_path, html: { id: 'submit-link' } do |f|
     = form_errors_for(@link)
     = f.text_field :full_url, class: 'col-xs-10'
-    = f.submit 'Get url!', class: 'col-xs-2'
+    = f.submit 'Get url!', class: 'col-xs-2', id: 'submit-link-cta'
 
   .small Just paste your url in the field above and click 'Get url!' to get shortened url.

@@ -1,20 +1,24 @@
 require 'rails_helper'
 
-RSpec.feature 'Submit url', type: :feature do
-  scenario 'for valid url' do
-    visit '/'
-    fill_in 'link[full_url]', with: 'https://www.youtube.com/watch?v=uUtymxox_G8'
-    click_button 'Get url!' #TODO: css
+RSpec.feature 'Submit', type: :feature do
+  context 'for valid link' do
+    it 'shows generated short link' do
+      visit '/'
+      fill_in 'link[full_url]', with: 'https://www.youtube.com/watch?v=uUtymxox_G8'
+      find('#submit-link-cta').click
 
-    expect(page).to have_css('#short-url-msg')
-    expect(page).to have_css('input#short_url')
+      expect(page).to have_css('#short-url-msg')
+      expect(page).to have_css('input#short_url')
+    end
   end
 
-  scenario 'for invalid url' do
-    visit '/'
-    fill_in 'link[full_url]', with: 'notvalidurl'
-    click_button 'Get url!' #TODO: css
+  context 'for invalid link' do
+    it 'shows error message' do
+      visit '/'
+      fill_in 'link[full_url]', with: 'notvalidurl'
+      find('#submit-link-cta').click
 
-    expect(page).to have_css('.alert-danger', text: /is not a valid link/)
+      expect(page).to have_css('.alert-danger', text: /is not a valid link/)
+    end
   end
 end
