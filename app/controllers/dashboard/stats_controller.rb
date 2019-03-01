@@ -5,7 +5,7 @@ module Dashboard
       load_visits
 
       respond_to do |format|
-        format.html { }
+        format.html {}
         format.csv  { render_csv }
       end
     end

@@ -8,7 +8,7 @@ class Link < ApplicationRecord
   validates :secret, presence: true
 
   def to_param
-    self.uuid # for using default path helpers, like some_path(link)
+    uuid # for using default path helpers, like some_path(link)
   end
 
   private

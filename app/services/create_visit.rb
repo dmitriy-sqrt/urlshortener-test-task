@@ -6,9 +6,9 @@ class CreateVisit < ::BaseService
 
   def call
     if save_visit
-      return Result.new(success: true, object: @visit)
+      Result.new(success: true, object: @visit)
     else
-      return Result.new(success: false, errors: @visit.errors)
+      Result.new(success: false, errors: @visit.errors)
     end
   end
 

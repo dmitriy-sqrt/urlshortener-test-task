@@ -5,7 +5,7 @@ module Dashboard
     end
 
     def create
-      save_link or render :new
+      save_link or render(:new)
     end
 
     def show
